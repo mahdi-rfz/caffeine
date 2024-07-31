@@ -1,7 +1,7 @@
-type_of_movement = (1)
-# 1 for mouse move , 2 for press key on keyboard
+type_of_movement = ("MOUSE")
+# MOUSE for mouse move , KEYBOARD for press key on keyboard
 
-delay_time = (5) #secend
+delay_time = (600) #secend
 
 mouse_coordinates = [100 , 100]
 #                     x ,  y
