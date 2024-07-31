@@ -12,6 +12,6 @@ os.chdir("/etc")
 os.mkdir("caffeine")
 os.chdir(cu)
 
-os.system("cp caffeine_config.py /etc/caffeine") 
+os.system("cp caffeine_config.txt /etc/caffeine") 
 
 
