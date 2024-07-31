@@ -18,32 +18,31 @@ def ctime() :
     time = cu.strftime('%H:%M %p')
     return time
 
-sys.path.insert(0 , "/etc/caffeine")
-import caffeine_config as cf_conf
+file = open("/etc/caffeine/caffeine_config.txt" , "r")
+file = eval(file.read())
 
 
 def move_mouse():
     while True:
-        mover = pyautogui.moveTo(cf_conf.mouse_coordinates[0] , cf_conf.mouse_coordinates[1])
-        time.sleep(cf_conf.delay_time)
+        mover = pyautogui.moveTo(file["mouse_coordinates_x"] , file["mouse_coordinates_y"])
+        time.sleep(file["delay_time"])
 
 def press_key():
     while True:
-        press = pyautogui.press(cf_conf.custom_key)
-        time.sleep(cf_conf.delay_time)
+        press = pyautogui.press(file["custom_key"])
+        time.sleep(file["delay_time"])
 
 
-if cf_conf.type_of_movement == ("MOUSE") :
+if file["type_of_movement"] == ("MOUSE") :
     print(typography())
     print(f"Type of movement : Move mouse , Start Time : {ctime()}")
-    print(f"The Length : {cf_conf.mouse_coordinates[0]} , The Width : {cf_conf.mouse_coordinates[1]}")
+    print(f"The Length : {(file)['mouse_coordinates_x']} , The Width : {(file)['mouse_coordinates_y']} , Delay Time : {(file)['delay_time']}")
     print(Fore.LIGHTBLACK_EX + "========================================================" + Fore.WHITE)
     move_mouse()
 
 else :
     print(typography())
     print(f"Type of movement : Press key , Start Time : {ctime()}")
-    print(f"Custom Keyboard Key : {cf_conf.custom_key}")
+    print(f"Custom Keyboard Key : {file['custom_key']} , Delay Time : {(file)['delay_time']}")
     print(Fore.LIGHTBLACK_EX + "========================================================" + Fore.WHITE)
     press_key()
-    
